@@ -242,6 +242,6 @@ export default {
     action: actionMovies,
     drama: dramaMovies,
     comedy: comedyMovies,
-    sciFi: sciFiMovies,
+    scifi: sciFiMovies,
     fantasy: fantasyMovies
 };

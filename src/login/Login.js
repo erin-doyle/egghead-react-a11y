@@ -8,11 +8,11 @@ const Login = ({ history }) => {
     return (
         <div>
             <h1>Movie Wishlist Login</h1>
-            <form onSubmit={goToWishlist}>
+            <div>
                 <input type="text" name="username" />
                 <input type="password" name="password" />
-                <button type="submit" name="submit">Login</button>
-            </form>
+                <button type="submit" name="submit" onClick={goToWishlist}>Login</button>
+            </div>
         </div>
     );
 };

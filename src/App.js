@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 
 import Login from './login/Login';
@@ -22,7 +22,7 @@ const buildMovieList = () => {
     return movieList;
 };
 
-class App extends PureComponent {
+class App extends Component {
     constructor(props) {
         super(props);
 
@@ -42,7 +42,7 @@ class App extends PureComponent {
     updateMovie(movieId, updatedDetails) {
         const { wishlist } = this.state;
 
-        if (!movieId in wishlist) return;
+        if (!(movieId in wishlist)) return;
 
         const updatedMovie = Object.assign({}, wishlist[movieId], updatedDetails);
 
@@ -80,7 +80,7 @@ class App extends PureComponent {
     removeMovieFromWishlist(movieId) {
         const { wishlist } = this.state;
 
-        if (!movieId in wishlist) return;
+        if (!(movieId in wishlist)) return;
 
         const { [movieId]: omitMovie, ...updatedWishlist } = wishlist;
 
@@ -95,10 +95,14 @@ class App extends PureComponent {
         return (
             <div>
                 <Switch>
-                    <Redirect exact from='/' to='/login'/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/wishlist" render={() => (
+                    {/* Login */}
+                    <Redirect exact from='/' to='/login' />
+                    <Route path="/login" component={Login} />
+
+                    {/* Wish List */}
+                    <Route path="/wishlist" render={(props) => (
                         <MovieWishlist
+                            {...props}
                             wishlist={wishlist}
                             updateMovie={this.updateMovie}
                             setAsWatched={this.setMovieAsWatched}
@@ -106,8 +110,12 @@ class App extends PureComponent {
                             removeMovie={this.removeMovieFromWishlist}
                         />
                     )}/>
-                    <Route path="/browse" render={() => (
+
+                    {/* Browse - default to Action genre */}
+                    <Redirect exact from='/browse' to='/browse/action' />
+                    <Route path="/browse/:genre" render={(props) => (
                         <MovieBrowser
+                            {...props}
                             wishlist={wishlist}
                             addToWishlist={this.addMovieToWishlist}
                             removeFromWishlist={this.removeMovieFromWishlist}
