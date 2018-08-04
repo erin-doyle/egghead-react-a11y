@@ -47,10 +47,7 @@ class App extends Component {
         const updatedMovie = Object.assign({}, wishlist[movieId], updatedDetails);
 
         this.setState({
-            wishlist: {
-                ...wishlist,
-                [movieId]: updatedMovie
-            }
+            wishlist: Object.assign({}, wishlist, { [movieId]: updatedMovie })
         });
     }
 
@@ -67,14 +64,14 @@ class App extends Component {
 
         if (movieId in wishlist) return;
 
-        this.setState({
-            wishlist: {
-                ...wishlist,
-                [movieId]: this.movies[movieId]
-            }
-        });
+        const newMovie = {
+            ...this.movies[movieId],
+            watched: false
+        };
 
-        this.setMovieAsUnwatched(movieId);
+        this.setState({
+            wishlist: Object.assign({}, wishlist, { [movieId]: newMovie })
+        });
     }
 
     removeMovieFromWishlist(movieId) {

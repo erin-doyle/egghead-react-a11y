@@ -7,6 +7,15 @@ import MovieList from '../primitives/MovieList';
 import movies from './movies';
 
 
+const getMovieActions = (handleAdd, handleRemove) => (movieId, inWishlist) => {
+    const clickHandler = () => inWishlist ? handleRemove(movieId) : handleAdd(movieId);
+    const buttonText = inWishlist ? 'Remove' : 'Add';
+
+    return (
+        <button onClick={clickHandler}>{buttonText}</button>
+    );
+};
+
 const MovieBrowser = ({
     history,
     match,
@@ -15,6 +24,7 @@ const MovieBrowser = ({
     removeFromWishlist
 }) => {
     const goToWishlist = () => history.push('/wishlist');
+    const movieActions = getMovieActions(addToWishlist, removeFromWishlist);
 
     const moviesInGenre = movies[match.params.genre];
 
@@ -43,7 +53,11 @@ const MovieBrowser = ({
             </ul>
 
             <div>
-                <MovieList movieList={moviesInGenre} />
+                <MovieList
+                    movieList={moviesInGenre}
+                    wishlist={wishlist}
+                    movieActions={movieActions}
+                />
             </div>
         </div>
     );
