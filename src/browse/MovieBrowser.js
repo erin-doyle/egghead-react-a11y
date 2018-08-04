@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import movies from './movies';
 
-const MovieBrowser = ({ history }) => {
+
+const MovieBrowser = ({
+    history,
+    wishlist,
+    addToWishlist,
+    removeFromWishlist
+}) => {
     const goToWishlist = () => history.push('/wishlist');
 
     return (
@@ -13,7 +20,10 @@ const MovieBrowser = ({ history }) => {
 };
 
 MovieBrowser.propTypes = {
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    wishlist: PropTypes.object.isRequired,
+    addToWishlist: PropTypes.func.isRequired,
+    removeFromWishlist: PropTypes.func.isRequired
 };
 
 
