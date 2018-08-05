@@ -16,6 +16,7 @@ class MovieEditor extends Component {
 
         this.handleChangeNotes = this.handleChangeNotes.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     handleChangeNotes(event) {
@@ -29,23 +30,50 @@ class MovieEditor extends Component {
         updateMovie({ notes });
     }
 
+    handleClose() {
+        const { movie, updateMovie } = this.props;
+
+        updateMovie({ notes: movie.notes });
+    }
+
     render() {
         const { notes } = this.state;
 
         return (
             <Modal>
-                <div>
-                    Notes:
-                    <textarea value={notes} onChange={this.handleChangeNotes} />
-                    <button onClick={this.handleSave}>Save</button>
+                <div className="modal fade show">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Edit Movie</h5>
+                                <button type="button" className="close" onClick={this.handleClose}>
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="form-group">
+                                    <label>Notes:</label>
+                                    <textarea class="form-control" value={notes} onChange={this.handleChangeNotes} />
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" onClick={this.handleSave}>Save</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div className="modal-backdrop fade show" />
             </Modal>
         );
     }
 }
 
+MovieEditor.defaultTypes = {
+    movie: {}
+};
+
 MovieEditor.propTypes = {
-    movie: PropTypes.object.isRequired,
+    movie: PropTypes.object,
     updateMovie: PropTypes.func.isRequired
 };
 

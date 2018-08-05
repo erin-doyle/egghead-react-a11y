@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 
 const modalRoot = document.getElementById('modal-root');
+const body = document.getElementsByTagName('body')[0];
 
 class Modal extends Component {
     constructor(props) {
@@ -13,10 +14,12 @@ class Modal extends Component {
 
     componentDidMount() {
         modalRoot.appendChild(this.el);
+        body.className = "modal-open";
     }
 
     componentWillUnmount() {
         modalRoot.removeChild(this.el);
+        body.className = "";
     }
 
     render() {
