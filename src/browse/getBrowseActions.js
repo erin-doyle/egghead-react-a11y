@@ -10,4 +10,5 @@ const getMovieActions = (handleAdd, handleRemove) => (movieId, inWishlist) => {
     );
 };
 
+
 export default getMovieActions;
