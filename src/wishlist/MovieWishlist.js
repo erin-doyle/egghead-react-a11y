@@ -60,12 +60,14 @@ class MovieWishlist extends Component {
 
         return (
             <div>
-                <div><h1>Movie Wishlist</h1></div>
-                <div>
-                    <button onClick={goToBrowse}>Add</button>
+                <div className="navbar navbar-dark bg-primary">
+                    <span className="navbar-text">
+                        Movie Wishlist
+                    </span>
+                    <button className="btn btn-outline-secondary" onClick={goToBrowse}>Add</button>
                 </div>
 
-                <ul className="nav nav-tabs">
+                <ul className="nav nav-pills nav-justified">
                     <li className="nav-item">
                         <NavLink to="/wishlist/unwatched" className="nav-link" activeClassName="active">Unwatched</NavLink>
                     </li>

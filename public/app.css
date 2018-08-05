@@ -1,3 +1,17 @@
+.login {
+    margin-top: 5rem;
+}
+
+.nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.notes {
+    font-style: italic;
+    color: #13d63f;
+}
+
 .modal.show {
     display: inherit;
 }

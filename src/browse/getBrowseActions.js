@@ -6,7 +6,9 @@ const getMovieActions = (handleAdd, handleRemove) => (movieId, inWishlist) => {
     const clickHandler = () => inWishlist ? handleRemove(movieId) : handleAdd(movieId);
 
     return (
-        <button onClick={clickHandler}>{buttonText}</button>
+        <div className="btn-group">
+            <button className="btn btn-secondary" onClick={clickHandler}>{buttonText}</button>
+        </div>
     );
 };
 

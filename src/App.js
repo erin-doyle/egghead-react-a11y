@@ -90,7 +90,7 @@ class App extends Component {
         const { wishlist } = this.state;
 
         return (
-            <div>
+            <div className="container-fluid">
                 <Switch>
                     {/* Login */}
                     <Redirect exact from='/' to='/login' />

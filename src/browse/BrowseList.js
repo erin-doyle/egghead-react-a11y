@@ -9,10 +9,7 @@ const BrowseList = ({ movieList, wishlist, movieActions }) => {
         const inWishlist = !!wishlist[movieId];
 
         return (
-            <div key={movieId}>
-                <Movie movieId={movieId} movie={movie}/>
-                {movieActions(movieId, inWishlist)}
-            </div>
+            <Movie movieId={movieId} movie={movie} movieActions={movieActions(movieId, inWishlist)}/>
         );
     });
 };
