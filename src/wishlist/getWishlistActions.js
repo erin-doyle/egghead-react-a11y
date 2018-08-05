@@ -1,17 +1,18 @@
 import React from 'react';
 
 
-const getMovieActions = (handleUpdate, setAsWatched, setAsUnwatched, handleRemove) =>
+const getMovieActions = (showEditor, setAsWatched, setAsUnwatched, handleRemove) =>
     (movieId, watched) => {
-        const notesHandler = () => handleUpdate({ notes: '' });
-        const watchClickHandler = () => watched ? setAsUnwatched(movieId) : setAsWatched(movieId);
         const watchButtonText = watched ? 'Unwatch' : 'Watched';
+        const watchClickHandler = () => watched ? setAsUnwatched(movieId) : setAsWatched(movieId);
+        const editClickHandler = () => showEditor(movieId);
+        const removeClickHandler = () => handleRemove(movieId);
 
         return (
             <div>
-                <button onClick={notesHandler}>Notes</button>
                 <button onClick={watchClickHandler}>{watchButtonText}</button>
-                <button onClick={handleRemove}>Remove</button>
+                <button onClick={editClickHandler}>Edit</button>
+                <button onClick={removeClickHandler}>Remove</button>
             </div>
         );
     };
