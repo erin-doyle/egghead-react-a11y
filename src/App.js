@@ -4,7 +4,7 @@ import { Switch, Redirect, Route } from 'react-router-dom';
 import Login from './login/Login';
 import MovieWishlist from './wishlist/MovieWishlist';
 import MovieBrowser from './browse/MovieBrowser';
-import genres from './browse/movies';
+import genres from './movies';
 
 
 const buildMovieList = () => {
@@ -96,8 +96,9 @@ class App extends Component {
                     <Redirect exact from='/' to='/login' />
                     <Route path="/login" component={Login} />
 
-                    {/* Wish List */}
-                    <Route path="/wishlist" render={(props) => (
+                    {/* Wish List - default to Unwatched */}
+                    <Redirect exact from='/wishlist' to='/wishlist/unwatched' />
+                    <Route path="/wishlist/:status" render={(props) => (
                         <MovieWishlist
                             {...props}
                             wishlist={wishlist}

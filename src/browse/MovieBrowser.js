@@ -2,19 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import MovieList from '../primitives/MovieList';
+import BrowseList from './BrowseList';
+import getBrowseActions from './getBrowseActions';
 
-import movies from './movies';
+import movies from '../movies';
 
-
-const getMovieActions = (handleAdd, handleRemove) => (movieId, inWishlist) => {
-    const clickHandler = () => inWishlist ? handleRemove(movieId) : handleAdd(movieId);
-    const buttonText = inWishlist ? 'Remove' : 'Add';
-
-    return (
-        <button onClick={clickHandler}>{buttonText}</button>
-    );
-};
 
 const MovieBrowser = ({
     history,
@@ -24,8 +16,7 @@ const MovieBrowser = ({
     removeFromWishlist
 }) => {
     const goToWishlist = () => history.push('/wishlist');
-    const movieActions = getMovieActions(addToWishlist, removeFromWishlist);
-
+    const movieActions = getBrowseActions(addToWishlist, removeFromWishlist);
     const moviesInGenre = movies[match.params.genre];
 
     return (
@@ -53,7 +44,7 @@ const MovieBrowser = ({
             </ul>
 
             <div>
-                <MovieList
+                <BrowseList
                     movieList={moviesInGenre}
                     wishlist={wishlist}
                     movieActions={movieActions}

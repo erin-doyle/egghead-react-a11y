@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Movie from './Movie';
+import Movie from '../primitives/Movie';
 
 
-const MovieList = ({ movieList, wishlist, movieActions }) => {
+const BrowseList = ({ movieList, wishlist, movieActions }) => {
     return Object.entries(movieList).map(([ movieId, movie ]) => {
         const inWishlist = !!wishlist[movieId];
 
@@ -17,15 +17,15 @@ const MovieList = ({ movieList, wishlist, movieActions }) => {
     });
 };
 
-MovieList.defaultProps = {
+BrowseList.defaultProps = {
     movieActions: () => null
 };
 
-MovieList.propTypes = {
+BrowseList.propTypes = {
     movieList: PropTypes.object.isRequired,
     wishlist: PropTypes.object.isRequired,
     movieActions: PropTypes.func
 };
 
 
-export default MovieList;
+export default BrowseList;
