@@ -9,7 +9,7 @@ const getMovieActions = (showEditor, setAsWatched, setAsUnwatched, handleRemove)
         const removeClickHandler = () => handleRemove(movieId);
 
         return (
-            <div class="btn-group">
+            <div className="btn-group">
                 <button className="btn btn-secondary" onClick={watchClickHandler}>{watchButtonText}</button>
                 <button className="btn btn-secondary" onClick={editClickHandler}>Edit</button>
                 <button className="btn btn-secondary" onClick={removeClickHandler}>Remove</button>

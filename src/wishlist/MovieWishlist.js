@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import WishList from './WishList';
 import getWishlistActions from './getWishlistActions';
@@ -76,13 +76,16 @@ class MovieWishlist extends Component {
                     </li>
                 </ul>
 
-                <div>
-                    <WishList
-                        movieList={wishlist}
-                        watched={match.params.status === 'watched'}
-                        movieActions={movieActions}
-                    />
-                </div>
+                {Object.keys(wishlist).length
+                    ? <div>
+                        <WishList
+                            movieList={wishlist}
+                            watched={match.params.status === 'watched'}
+                            movieActions={movieActions}
+                        />
+                    </div>
+                    : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
+                }
 
                 { showEditor
                     ? <MovieEditor movie={movieInEditing} updateMovie={this.handleUpdateMovie} />

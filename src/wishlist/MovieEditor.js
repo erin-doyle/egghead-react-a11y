@@ -53,7 +53,7 @@ class MovieEditor extends Component {
                             <div className="modal-body">
                                 <div className="form-group">
                                     <label>Notes:</label>
-                                    <textarea class="form-control" value={notes} onChange={this.handleChangeNotes} />
+                                    <textarea className="form-control" value={notes} onChange={this.handleChangeNotes} />
                                 </div>
                             </div>
                             <div className="modal-footer">
