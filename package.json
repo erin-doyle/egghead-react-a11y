@@ -10,14 +10,19 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
+  "devDependencies": {
+    "react-axe": "^3.3.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint src",
+    "pretest": "npm run lint",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": ["react-app", "plugin:jsx-a11y/recommended"]
   },
   "browserslist": {
     "production": [

@@ -5,6 +5,13 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// if we're in dev mode
+if (process.env.NODE_ENV === 'development') {
+    // Set up react-axe to catch accessibility issues during development
+    const axe = require('react-axe');
+    axe(React, ReactDOM, 1000);
+}
+
 ReactDOM.render((
     <BrowserRouter>
         <App/>
