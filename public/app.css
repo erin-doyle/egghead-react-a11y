@@ -12,6 +12,19 @@
     color: #13d63f;
 }
 
-.modal.show {
-    display: inherit;
+.dialog-modal {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(77, 77, 77, 0.9);
 }

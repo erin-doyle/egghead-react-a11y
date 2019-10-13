@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -67,29 +67,38 @@ class MovieWishlist extends Component {
                     <button className="btn btn-outline-secondary" onClick={goToBrowse}>+</button>
                 </div>
 
-                <ul className="nav nav-pills nav-justified">
-                    <li className="nav-item">
-                        <NavLink to="/wishlist/unwatched" className="nav-link" activeClassName="active">Unwatched</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/wishlist/watched" className="nav-link" activeClassName="active">Watched</NavLink>
-                    </li>
-                </ul>
-
                 {Object.keys(wishlist).length
-                    ? <div>
-                        <WishList
-                            movieList={wishlist}
-                            watched={match.params.status === 'watched'}
-                            movieActions={movieActions}
-                        />
-                    </div>
-                    : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
-                }
+                    // Show WishList
+                    ? <Fragment>
 
-                { showEditor
-                    ? <MovieEditor movie={movieInEditing} updateMovie={this.handleUpdateMovie} />
-                    : null
+                        <ul className="nav nav-pills nav-justified">
+                            <li className="nav-item">
+                                <NavLink to="/wishlist/unwatched" className="nav-link"
+                                         activeClassName="active">Unwatched</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/wishlist/watched" className="nav-link"
+                                         activeClassName="active">Watched</NavLink>
+                            </li>
+                        </ul>
+
+                        <div>
+                            <WishList
+                                movieList={wishlist}
+                                watched={match.params.status === 'watched'}
+                                movieActions={movieActions}
+                            />
+                        </div>
+
+                        <MovieEditor
+                            movie={movieInEditing}
+                            updateMovie={this.handleUpdateMovie}
+                            isOpen={showEditor}
+                        />
+                    </Fragment>
+
+                    // No movies yet in the WishList
+                    : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
                 }
             </div>
         );
