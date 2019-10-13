@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
-const MovieWishlist = () => {
+const MovieWishlist = ({ history }) => {
+    const goToBrowse = () => history.push('/browse');
+
     return (
         <div>
-            <h1>Movie Wishlist</h1><Link to="/browse">Add</Link>
+            <div><h1>Movie Wishlist</h1></div><div><button onClick={goToBrowse}>Add</button></div>
         </div>
     );
+};
+
+MovieWishlist.propTypes = {
+    history: PropTypes.object.isRequired
 };
 
 
