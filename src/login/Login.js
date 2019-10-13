@@ -15,14 +15,14 @@ const Login = ({ history }) => {
                     <div className="card-body">
                         <div className="form-group">
                             <label>Username</label>
-                            <input type="username" className="form-control" placeholder="Enter username" />
+                            <input type="text" name="username" className="form-control" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Password" />
+                            <input type="password" name="password" className="form-control" placeholder="Password" />
                             <small className="form-text text-muted">Passwords are case sensitive</small>
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={goToWishlist}>Login</button>
+                        <button type="button" className="btn btn-primary" onClick={goToWishlist}>Login</button>
                     </div>
                 </div>
             </div>

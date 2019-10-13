@@ -64,7 +64,7 @@ class MovieWishlist extends Component {
                     <span className="navbar-text">
                         Movie Wishlist
                     </span>
-                    <button className="btn btn-outline-secondary" onClick={goToBrowse}>Add</button>
+                    <button className="btn btn-outline-secondary" onClick={goToBrowse}>+</button>
                 </div>
 
                 <ul className="nav nav-pills nav-justified">
