@@ -19,7 +19,7 @@ Please follow the steps to get your machine set up **_before the workshop_** to 
 Please ensure that your machine has the following core tools installed:
 
 * [Git](https://git-scm.com/downloads)
-* [Node.js](https://nodejs.org/en/) v10.11 or higher
+* [Node.js](https://nodejs.org/en/) v10.13 or higher
     * NVM is the easiest way to manage Node. [Its setup instructions
     here](https://github.com/creationix/nvm#installation). Then run `nvm install
 node && nvm alias default node`, which installs the latest version of Node.js
