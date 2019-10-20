@@ -6,7 +6,7 @@ const Header = ({ title, buttonText, handleButtonClick }) => (
     <header>
         <nav className="navbar navbar-dark bg-primary">
             <span className="navbar-text">
-                {title}
+                <h1>{title}</h1>
             </span>
             <button className="btn btn-outline-secondary" onClick={handleButtonClick}>{buttonText}</button>
         </nav>
