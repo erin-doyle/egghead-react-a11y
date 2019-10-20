@@ -60,35 +60,38 @@ class MovieWishlist extends Component {
 
         return (
             <div>
-                <div className="navbar navbar-dark bg-primary">
-                    <span className="navbar-text">
-                        Movie Wishlist
-                    </span>
-                    <button className="btn btn-outline-secondary" onClick={goToBrowse}>+</button>
-                </div>
+                <header>
+                    <nav className="navbar navbar-dark bg-primary">
+                        <span className="navbar-text">
+                            Movie Wishlist
+                        </span>
+                        <button className="btn btn-outline-secondary" onClick={goToBrowse}>+</button>
+                    </nav>
+                </header>
 
-                {Object.keys(wishlist).length
-                    // Show WishList
-                    ? <Fragment>
+                <main>
+                    {Object.keys(wishlist).length
+                        // Show WishList
+                        ? <Fragment>
 
-                        <ul className="nav nav-pills nav-justified">
-                            <li className="nav-item">
-                                <NavLink to="/wishlist/unwatched" className="nav-link"
-                                         activeClassName="active">Unwatched</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/wishlist/watched" className="nav-link"
-                                         activeClassName="active">Watched</NavLink>
-                            </li>
-                        </ul>
+                            <ul className="nav nav-pills nav-justified">
+                                <li className="nav-item">
+                                    <NavLink to="/wishlist/unwatched" className="nav-link"
+                                             activeClassName="active">Unwatched</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/wishlist/watched" className="nav-link"
+                                             activeClassName="active">Watched</NavLink>
+                                </li>
+                            </ul>
 
-                        <div>
-                            <WishList
-                                movieList={wishlist}
-                                watched={match.params.status === 'watched'}
-                                movieActions={movieActions}
-                            />
-                        </div>
+                            <div>
+                                <WishList
+                                    movieList={wishlist}
+                                    watched={match.params.status === 'watched'}
+                                    movieActions={movieActions}
+                                />
+                            </div>
 
                             <MovieEditor
                                 key={movieInEditing.name}
@@ -98,9 +101,10 @@ class MovieWishlist extends Component {
                             />
                         </Fragment>
 
-                    // No movies yet in the WishList
-                    : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
-                }
+                        // No movies yet in the WishList
+                        : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
+                    }
+                </main>
             </div>
         );
     }
