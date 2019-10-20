@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import movies from '../movies';
+import Header from '../primitives/Header';
 
 import BrowseList from './BrowseList';
 import getBrowseActions from './getBrowseActions';
@@ -21,14 +22,7 @@ const MovieBrowser = ({
 
     return (
         <div>
-            <header>
-                <nav className="navbar navbar-dark bg-primary">
-                    <span className="navbar-text">
-                        Browse Movies
-                    </span>
-                    <button className="btn btn-outline-secondary" onClick={goToWishlist}>{'< Back'}</button>
-                </nav>
-            </header>
+            <Header title="Browse Movies" buttonText="< Back" handleButtonClick={goToWishlist} />
 
             <main>
                 <ul className="nav nav-pills nav-justified">
