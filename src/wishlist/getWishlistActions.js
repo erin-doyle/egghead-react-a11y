@@ -1,8 +1,10 @@
 import React from 'react';
 
+import MovieToolbarButton from '../primitives/MovieToolbarButton';
+
 
 const getMovieActions = (showEditor, setAsWatched, setAsUnwatched, handleRemove) =>
-    (movieId, watched) => {
+    (movieId, movieTitle, watched) => {
         const watchButtonText = watched ? 'Unwatch' : 'Watched';
         const watchClickHandler = () => watched ? setAsUnwatched(movieId) : setAsWatched(movieId);
         const editClickHandler = () => showEditor(movieId);
@@ -10,9 +12,9 @@ const getMovieActions = (showEditor, setAsWatched, setAsUnwatched, handleRemove)
 
         return (
             <div className="btn-group">
-                <button className="btn btn-secondary" onClick={watchClickHandler}>{watchButtonText}</button>
-                <button className="btn btn-secondary" onClick={editClickHandler}>Edit</button>
-                <button className="btn btn-secondary" onClick={removeClickHandler}>Remove</button>
+                <MovieToolbarButton movieTitle={movieTitle} buttonText={watchButtonText} clickHandler={watchClickHandler} />
+                <MovieToolbarButton movieTitle={movieTitle} buttonText="Edit" clickHandler={editClickHandler} />
+                <MovieToolbarButton movieTitle={movieTitle} buttonText="Remove" clickHandler={removeClickHandler} />
             </div>
         );
     };
