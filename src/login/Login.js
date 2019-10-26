@@ -73,11 +73,11 @@ class Login extends Component {
                             </h2>
 
                             <div className="card-body">
-
                                 <form>
                                     <div className="form-group">
-                                        <label>Username</label>
+                                        <label htmlFor="field-username">Username</label>
                                         <input
+                                            id="field-username"
                                             type="text"
                                             name="username"
                                             className={usernameClasses}
@@ -90,8 +90,9 @@ class Login extends Component {
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Password</label>
+                                        <label htmlFor="field-password">Password</label>
                                         <input
+                                            id="field-password"
                                             type="password"
                                             name="password"
                                             className={passwordClasses}
@@ -108,17 +109,16 @@ class Login extends Component {
 
                                     <button type="button" className="btn btn-dark" onClick={this.onSubmit}>Login</button>
                                 </form>
-
                             </div>
                         </div>
                     </main>
-                </div>
 
-                <footer className="footer">
-                    <div><a href="/T&C">Terms &amp; Conditions</a></div>
-                    <div><a href="/privacy">Privacy Policy</a></div>
-                    <div>© Movie Wishlist 2019</div>
-                </footer>
+                    <footer className="footer">
+                        <div><a href="/T&C">Terms &amp; Conditions</a></div>
+                        <div><a href="/privacy">Privacy Policy</a></div>
+                        <div>© Movie Wishlist 2019</div>
+                    </footer>
+                </div>
             </div>
         );
     }
