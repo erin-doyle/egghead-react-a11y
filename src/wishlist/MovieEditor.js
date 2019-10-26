@@ -62,7 +62,7 @@ class MovieEditor extends Component {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 id="modal-title" className="modal-title">Edit Movie</h1>
-                            <button type="button" className="close" onClick={this.handleClose}>
+                            <button type="button" className="close" aria-label="Close" onClick={this.handleClose}>
                                 <span>&times;</span>
                             </button>
                         </div>
