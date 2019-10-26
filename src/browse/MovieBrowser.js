@@ -22,7 +22,7 @@ const MovieBrowser = ({
 
     return (
         <div>
-            <Header title="Browse Movies" buttonText="< Back" handleButtonClick={goToWishlist} />
+            <Header title="Browse Movies" buttonText="< Back" buttonLabel="Back to Wish List" handleButtonClick={goToWishlist} />
 
             <main>
                 <ul className="nav nav-pills nav-justified">
