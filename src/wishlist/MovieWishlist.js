@@ -98,7 +98,11 @@ class MovieWishlist extends Component {
                         </Fragment>
 
                         // No movies yet in the WishList
-                        : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
+                        : <div aria-labelledby="noMoviesText addLink">
+                            <span id="noMoviesText">
+                                No Movies in your Wish List! <Link id="addLink" to="/browse">Add some Movies!</Link>
+                            </span>
+                        </div>
                     }
                 </main>
 
