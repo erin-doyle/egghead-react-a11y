@@ -1,13 +1,15 @@
 import React from 'react';
 
+import MovieToolbarButton from '../primitives/MovieToolbarButton';
 
-const getMovieActions = (handleAdd, handleRemove) => (movieId, inWishlist) => {
+
+const getMovieActions = (handleAdd, handleRemove) => (movieId, movieTitle, inWishlist) => {
     const buttonText = inWishlist ? 'Remove' : 'Add';
     const clickHandler = () => inWishlist ? handleRemove(movieId) : handleAdd(movieId);
 
     return (
         <div className="btn-group">
-            <button className="btn btn-secondary" onClick={clickHandler}>{buttonText}</button>
+            <MovieToolbarButton movieTitle={movieTitle} buttonText={buttonText} clickHandler={clickHandler} />
         </div>
     );
 };
