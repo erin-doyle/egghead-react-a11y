@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import FormInput from '../primitives/FormInput';
+
 
 class Login extends Component {
     constructor(props) {
@@ -57,8 +59,6 @@ class Login extends Component {
 
     render() {
         const { isUsernameValid, isPasswordValid } = this.state;
-        const usernameClasses = `form-control ${!isUsernameValid ? 'is-invalid' : ''}`;
-        const passwordClasses = `form-control ${!isPasswordValid ? 'is-invalid' : ''}`;
 
         return (
             <div className="login row align-items-center">
@@ -74,40 +74,29 @@ class Login extends Component {
 
                             <div className="card-body">
                                 <form>
-                                    <div className="form-group">
-                                        <label htmlFor="field-username">Username
-                                            <input
-                                                id="field-username"
-                                                type="text"
-                                                name="username"
-                                                className={usernameClasses}
-                                                placeholder="Enter username"
-                                                onChange={this.handleUsernameChange}
-                                            />
-                                        </label>
-                                        <div className="invalid-feedback">
-                                            Please provide a Username.
-                                        </div>
-                                    </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="field-password">Password
-                                            <input
-                                                id="field-password"
-                                                type="password"
-                                                name="password"
-                                                className={passwordClasses}
-                                                placeholder="Password"
-                                                onChange={this.handlePasswordChange}
-                                            />
-                                        </label>
-                                        <small className="form-text text-muted">
-                                            Passwords are case sensitive
-                                        </small>
-                                        <div className="invalid-feedback">
-                                            Please provide a Password.
-                                        </div>
-                                    </div>
+                                    <fieldset>
+                                        <FormInput
+                                            id="field-username"
+                                            type="text"
+                                            name="username"
+                                            label="Username"
+                                            isValid={isUsernameValid}
+                                            onChange={this.handleUsernameChange}
+                                            errorText="Please provide a Username."
+                                        />
+
+                                        <FormInput
+                                            id="field-password"
+                                            type="password"
+                                            name="password"
+                                            label="Password"
+                                            isValid={isPasswordValid}
+                                            onChange={this.handlePasswordChange}
+                                            errorText="Please provide a Password."
+                                            helperText="Passwords are case sensitive"
+                                        />
+                                    </fieldset>
 
                                     <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
                                 </form>
