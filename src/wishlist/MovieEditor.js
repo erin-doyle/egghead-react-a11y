@@ -73,7 +73,7 @@ class MovieEditor extends Component {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary" onClick={this.handleSave}>Save</button>
+                            <button type="button" className="btn btn-dark" onClick={this.handleSave}>Save</button>
                         </div>
                     </div>
                 </div>

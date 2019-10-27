@@ -67,7 +67,7 @@ class Login extends Component {
                         <h1>Movie Wishlist</h1>
                     </header>
                     <main>
-                        <div className="card bg-primary">
+                        <div className="card bg-light">
                             <h2 className="card-header">
                                  Login
                             </h2>
@@ -98,7 +98,7 @@ class Login extends Component {
                                         />
                                     </fieldset>
 
-                                    <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
+                                    <button type="button" className="btn btn-dark" onClick={this.onSubmit}>Login</button>
                                 </form>
                             </div>
                         </div>

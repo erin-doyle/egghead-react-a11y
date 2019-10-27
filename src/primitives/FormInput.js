@@ -28,7 +28,7 @@ const FormInput = ({
                 aria-describedby={`${helperId} ${errorId}`}
             />
             { helperText &&
-                <small id={helperId} className="form-text text-muted helper-text">
+                <small id={helperId} className="form-text helper-text">
                     {helperText}
                 </small>
             }

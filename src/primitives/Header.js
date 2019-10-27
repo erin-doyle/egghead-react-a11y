@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 const Header = ({ title, buttonText, buttonLabel, handleButtonClick }) => (
     <header>
-        <nav className="navbar navbar-dark bg-primary">
-            <span className="navbar-text">
+        <nav className="navbar navbar-dark">
+            <span className="navbar-brand">
                 <h1>{title}</h1>
             </span>
             <button
-                className="btn btn-outline-secondary"
+                className="btn btn btn-outline-light"
                 onClick={handleButtonClick}
                 aria-label={buttonLabel}
             >
