@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Header from '../primitives/Header';
+import TabList from '../primitives/TabList';
 
 import WishList from './WishList';
 import getWishlistActions from './getWishlistActions';
@@ -57,6 +58,10 @@ class MovieWishlist extends Component {
         const { showEditor, movieIdInEdit } = this.state;
 
         const goToBrowse = () => history.push('/browse');
+        const tabList = [
+            { linkTo: "/wishlist/unwatched", title: "Unwatched" },
+            { linkTo: "/wishlist/watched", title: "Watched" }
+        ];
         const movieActions = getWishlistActions(this.handleShowEditor, setAsWatched, setAsUnwatched, removeMovie);
         const movieInEditing = movieIdInEdit ? wishlist[movieIdInEdit] : {};
 
@@ -65,21 +70,11 @@ class MovieWishlist extends Component {
                 <Header title="Movie Wishlist" buttonText="+" buttonLabel="Add a Movie" handleButtonClick={goToBrowse} />
 
                 <main>
+                    <TabList tabList={tabList} />
+
                     {Object.keys(wishlist).length
                         // Show WishList
                         ? <Fragment>
-
-                            <ul className="nav nav-pills nav-justified">
-                                <li className="nav-item">
-                                    <NavLink to="/wishlist/unwatched" className="nav-link"
-                                             activeClassName="active">Unwatched</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink to="/wishlist/watched" className="nav-link"
-                                             activeClassName="active">Watched</NavLink>
-                                </li>
-                            </ul>
-
                             <div>
                                 <WishList
                                     movieList={wishlist}
