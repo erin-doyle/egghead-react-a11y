@@ -1,6 +1,8 @@
 :root {
     --dark-blue: #034f9a;
     --red: #bd1425;
+    --light-grey: #dee2e6;
+    --white: #ffffff;
 }
 
 a {
@@ -31,13 +33,22 @@ a {
     background-color: var(--dark-blue);
 }
 
-.nav-link {
-    text-decoration: none;
-    opacity: 1;
+.nav-tabs {
+    border-bottom: none;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    background-color: var(--dark-blue);
+.nav-tabs .nav-link {
+    text-decoration: none;
+    opacity: 1;
+    border-bottom: 1px solid var(--light-grey);
+    background-color: var(--white);
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border: 1px solid var(--light-grey);
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border-bottom: none;
 }
 
 .btn-dark {
