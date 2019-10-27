@@ -20,13 +20,15 @@ const Movie = ({ movieId, movie, movieActions }) => {
     return (
         <div className="card mb-3">
             <div className="row">
-                <div className="col-1"><img src={imgSrc} alt="movie" /></div>
+                <div className="col-1"><img src={imgSrc} alt={`${name} movie poster`} /></div>
                 <div className="col">
                     <div className="card-body">
                         <h2 className="card-title">{name} ({year})</h2>
-                        <p className="card-subtitle mb-2 text-muted">{rating} | {runtime} { genre ? `| ${genre}` : null }</p>
-                        <p className="card-text">{description}</p>
-                        <p className="card-text text-muted">Director: {director} | Stars: {stars}</p>
+                        <div className="card-subtitle mb-2 text-muted">
+                            Rating: {rating} | Runtime: {runtime} mins { genre ? `| Genre: ${genre}` : null }
+                        </div>
+                        <div aria-label="movie description" className="card-text mb-2">{description}</div>
+                        <div className="card-text text-muted">Director: {director} | Stars: {stars}</div>
 
                         { notes
                             ? <div className="blockquote-footer notes">
