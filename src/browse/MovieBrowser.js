@@ -29,7 +29,13 @@ const MovieBrowser = ({
 
     return (
         <div>
-            <Header title="Browse Movies" buttonText="< Back" buttonLabel="Back to Wish List" handleButtonClick={goToWishlist} />
+            <Header
+                title="Browse Movies"
+                buttonText="< Back"
+                buttonLabel="Back to Wish List"
+                handleButtonClick={goToWishlist}
+                doFocus
+            />
 
             <main>
                 <TabList tabList={tabList} />
