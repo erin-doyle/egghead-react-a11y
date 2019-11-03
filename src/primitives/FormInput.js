@@ -10,6 +10,7 @@ const FormInput = ({
     errorText,
     helperText,
     onChange,
+    isRequired,
     isValid
 }) => {
     const inputClasses = `form-control ${!isValid ? 'is-invalid' : ''}`;
@@ -25,6 +26,8 @@ const FormInput = ({
                 name={name}
                 className={inputClasses}
                 onChange={onChange}
+                aria-required={isRequired}
+                aria-invalid={!isValid}
                 aria-describedby={`${helperId} ${errorId}`}
             />
             { helperText &&
@@ -33,7 +36,7 @@ const FormInput = ({
                 </small>
             }
             { errorText &&
-                <div id={errorId} className="invalid-feedback">
+                <div id={errorId} className="invalid-feedback" aria-live="polite">
                     {errorText}
                 </div>
             }
@@ -46,6 +49,7 @@ FormInput.defaultProps = {
     errorText: null,
     helperText: null,
     onChange: null,
+    isRequired: false,
     isValid: true
 };
 
@@ -57,6 +61,7 @@ FormInput.propTypes = {
     errorText: PropTypes.string,
     helperText: PropTypes.string,
     onChange: PropTypes.func,
+    isRequired: PropTypes.bool,
     isValid: PropTypes.bool
 };
 

@@ -84,6 +84,7 @@ class Login extends Component {
                                             isValid={isUsernameValid}
                                             onChange={this.handleUsernameChange}
                                             errorText="Please provide a Username."
+                                            isRequired
                                         />
 
                                         <FormInput
@@ -95,6 +96,7 @@ class Login extends Component {
                                             onChange={this.handlePasswordChange}
                                             errorText="Please provide a Password."
                                             helperText="Passwords are case sensitive"
+                                            isRequired
                                         />
                                     </fieldset>
 
