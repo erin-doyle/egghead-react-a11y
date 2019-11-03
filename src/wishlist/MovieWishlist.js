@@ -19,9 +19,17 @@ class MovieWishlist extends Component {
             movieIdInEdit: null
         };
 
+        this.addSomeMoviesLink = React.createRef();
+
         this.handleShowEditor = this.handleShowEditor.bind(this);
         this.handleHideEditor = this.handleHideEditor.bind(this);
         this.handleUpdateMovie = this.handleUpdateMovie.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.addSomeMoviesLink && this.addSomeMoviesLink.current) {
+            this.addSomeMoviesLink.current.focus();
+        }
     }
 
     handleShowEditor(movieId) {
@@ -71,11 +79,11 @@ class MovieWishlist extends Component {
                 <Header title="Movie Wishlist" buttonText="+" buttonLabel="Add a Movie" handleButtonClick={goToBrowse} />
 
                 <main>
-                    <TabList tabList={tabList} />
-
                     { hasMovies
                         ? ( // Show WishList
                             <Fragment>
+                                <TabList tabList={tabList} />
+
                                 <div>
                                     <WishList
                                         movieList={wishlist}
@@ -98,10 +106,10 @@ class MovieWishlist extends Component {
                                 <span id="noMoviesText">
                                     No Movies in your Wish List! &nbsp;
                                     <Link id="addLink" to="/browse"
-                                          aria-label="Add some movies to your wishlist now!"
-                                    >
-                                        Add some!
-                                    </Link>
+                                        aria-label="Add some movies to your wishlist now!"
+                                        // innerRef is the prop used by react-router's Link to forward the ref attribute
+                                        // to the underlying <a> element
+                                        innerRef={this.addSomeMoviesLink}>Add some Movies!</Link>
                                 </span>
                             </div>
                         )
