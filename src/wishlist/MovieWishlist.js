@@ -76,7 +76,12 @@ class MovieWishlist extends Component {
 
         return (
             <div>
-                <Header title="Movie Wishlist" buttonText="+" buttonLabel="Add a Movie" handleButtonClick={goToBrowse} />
+                <Header
+                    title="Movie Wishlist"
+                    buttonText="+" buttonLabel="Add a Movie"
+                    handleButtonClick={goToBrowse}
+                    doFocus={hasMovies} // only focus the header if we have movies, otherwise focus the Add some movies! link
+                />
 
                 <main>
                     { hasMovies
