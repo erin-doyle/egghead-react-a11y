@@ -44,7 +44,7 @@ const MovieBrowser = ({
             <main>
                 <TabList ariaLabel="Movie Genres" activeTab={selectedGenre} tabList={tabList} />
 
-                <div role="tabpanel">
+                <div id={`${selectedGenre}-panel`} role="tabpanel">
                     <BrowseList
                         movieList={moviesInGenre}
                         wishlist={wishlist}

@@ -8,7 +8,13 @@ const TabList = ({ ariaLabel, activeTab, tabList }) => {
         const { id, title, linkTo } = tabItem;
         const isActiveTab = id === activeTab;
         return (
-            <li key={id} role="tab" className="nav-item" aria-selected={isActiveTab}>
+            <li key={`${id}-tab`}
+                id={`${id}-tab`}
+                className="nav-item"
+                role="tab"
+                aria-selected={isActiveTab}
+                aria-controls={`${id}-panel`}
+            >
                 <NavLink to={linkTo} className="nav-link" activeClassName="active">{title}</NavLink>
             </li>
         );
