@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 
-const TabList = ({ ariaLabel, tabList }) => {
-    const tabItems = tabList.map((tabItem, index) => (
-        <li key={`${index}-${tabItem.linkTo}`} role="tab" className="nav-item">
-            <NavLink to={tabItem.linkTo} className="nav-link" activeClassName="active">{tabItem.title}</NavLink>
-        </li>
-    ));
+const TabList = ({ ariaLabel, activeTab, tabList }) => {
+    const tabItems = tabList.map((tabItem) => {
+        const { id, title, linkTo } = tabItem;
+        const isActiveTab = id === activeTab;
+        return (
+            <li key={id} role="tab" className="nav-item" aria-selected={isActiveTab}>
+                <NavLink to={linkTo} className="nav-link" activeClassName="active">{title}</NavLink>
+            </li>
+        );
+    });
 
     return (
         <ul role="tablist" aria-label={ariaLabel} className="nav nav-tabs nav-justified">
@@ -19,7 +23,12 @@ const TabList = ({ ariaLabel, tabList }) => {
 
 TabList.propTypes = {
     ariaLabel: PropTypes.string.isRequired,
-    tabList: PropTypes.array.isRequired
+    activeTab: PropTypes.string.isRequired,
+    tabList: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
+        linkTo: PropTypes.string,
+        title: PropTypes.string
+    })).isRequired
 };
 
 

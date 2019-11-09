@@ -65,11 +65,15 @@ class MovieWishlist extends Component {
         } = this.props;
         const { showEditor, movieIdInEdit } = this.state;
 
+        const selectedStatus = match.params.status;
         const hasMovies = !!Object.keys(wishlist).length;
         const goToBrowse = () => history.push('/browse');
+
+        // NOTE: id value should match :status path in linkTo URL
+        // since we're using match.params.status to identify the activeTab
         const tabList = [
-            { linkTo: "/wishlist/unwatched", title: "Unwatched" },
-            { linkTo: "/wishlist/watched", title: "Watched" }
+            { id: 'unwatched', linkTo: "/wishlist/unwatched", title: "Unwatched" },
+            { id: 'watched', linkTo: "/wishlist/watched", title: "Watched" }
         ];
         const movieActions = getWishlistActions(this.handleShowEditor, setAsWatched, setAsUnwatched, removeMovie);
         const movieInEditing = movieIdInEdit ? wishlist[movieIdInEdit] : {};
@@ -87,12 +91,12 @@ class MovieWishlist extends Component {
                     { hasMovies
                         ? ( // Show WishList
                             <Fragment>
-                                <TabList ariaLabel="WishLists by Status" tabList={tabList} />
+                                <TabList ariaLabel="WishLists by Status" activeTab={selectedStatus} tabList={tabList} />
 
                                 <div role="tabpanel">
                                     <WishList
                                         movieList={wishlist}
-                                        watched={match.params.status === 'watched'}
+                                        watched={selectedStatus === 'watched'}
                                         movieActions={movieActions}
                                     />
                                 </div>

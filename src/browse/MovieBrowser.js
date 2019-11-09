@@ -16,16 +16,20 @@ const MovieBrowser = ({
     addToWishlist,
     removeFromWishlist
 }) => {
+    const selectedGenre = match.params.genre;
     const goToWishlist = () => history.push('/wishlist');
+
+    // NOTE: id value should match :genre path in linkTo URL
+    // since we're using match.params.genre to identify the activeTab
     const tabList = [
-        { linkTo: "/browse/action", title: "Action" },
-        { linkTo: "/browse/drama", title: "Drama" },
-        { linkTo: "/browse/comedy", title: "Comedy" },
-        { linkTo: "/browse/scifi", title: "Sci Fi" },
-        { linkTo: "/browse/fantasy", title: "Fantasy" }
+        { id: "action", linkTo: "/browse/action", title: "Action" },
+        { id: "drama", linkTo: "/browse/drama", title: "Drama" },
+        { id: "comedy", linkTo: "/browse/comedy", title: "Comedy" },
+        { id: "scifi", linkTo: "/browse/scifi", title: "Sci Fi" },
+        { id: "fantasy", linkTo: "/browse/fantasy", title: "Fantasy" }
     ];
     const movieActions = getBrowseActions(addToWishlist, removeFromWishlist);
-    const moviesInGenre = movies[match.params.genre];
+    const moviesInGenre = movies[selectedGenre];
 
     return (
         <div>
@@ -38,7 +42,7 @@ const MovieBrowser = ({
             />
 
             <main>
-                <TabList ariaLabel="Movie Genres" tabList={tabList} />
+                <TabList ariaLabel="Movie Genres" activeTab={selectedGenre} tabList={tabList} />
 
                 <div role="tabpanel">
                     <BrowseList
