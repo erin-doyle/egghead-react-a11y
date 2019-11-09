@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import movies from '../movies';
 import Header from '../primitives/Header';
 import TabList from '../primitives/TabList';
+import TabPanel from '../primitives/TabPanel';
 
 import BrowseList from './BrowseList';
 import getBrowseActions from './getBrowseActions';
@@ -44,18 +45,13 @@ const MovieBrowser = ({
             <main>
                 <TabList ariaLabel="Movie Genres" activeTab={selectedGenre} tabList={tabList} />
 
-                <div
-                    id={`${selectedGenre}-panel`}
-                    role="tabpanel"
-                    aria-labelledby={`${selectedGenre}-tab`}
-                    tabIndex="0"
-                >
+                <TabPanel name={selectedGenre}>
                     <BrowseList
                         movieList={moviesInGenre}
                         wishlist={wishlist}
                         movieActions={movieActions}
                     />
-                </div>
+                </TabPanel>
             </main>
         </div>
     );

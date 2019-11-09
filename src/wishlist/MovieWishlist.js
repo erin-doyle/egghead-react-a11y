@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Header from '../primitives/Header';
 import TabList from '../primitives/TabList';
+import TabPanel from '../primitives/TabPanel';
 
 import WishList from './WishList';
 import getWishlistActions from './getWishlistActions';
@@ -93,18 +94,13 @@ class MovieWishlist extends Component {
                             <Fragment>
                                 <TabList ariaLabel="WishLists by Status" activeTab={selectedStatus} tabList={tabList} />
 
-                                <div
-                                    id={`${selectedStatus}-panel`}
-                                    role="tabpanel"
-                                    aria-labelledby={`${selectedStatus}-tab`}
-                                    tabIndex="0"
-                                >
+                                <TabPanel name={selectedStatus}>
                                     <WishList
                                         movieList={wishlist}
                                         watched={selectedStatus === 'watched'}
                                         movieActions={movieActions}
                                     />
-                                </div>
+                                </TabPanel>
 
                                 <MovieEditor
                                     key={movieInEditing.name}
