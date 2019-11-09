@@ -87,9 +87,9 @@ class MovieWishlist extends Component {
                     { hasMovies
                         ? ( // Show WishList
                             <Fragment>
-                                <TabList tabList={tabList} />
+                                <TabList ariaLabel="WishLists by Status" tabList={tabList} />
 
-                                <div>
+                                <div role="tabpanel">
                                     <WishList
                                         movieList={wishlist}
                                         watched={match.params.status === 'watched'}
