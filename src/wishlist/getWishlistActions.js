@@ -17,7 +17,7 @@ const getMovieActions = (showEditor, setAsWatched, setAsUnwatched, handleRemove)
         ];
 
         return (
-            <MovieToolbar movieTitle={movieTitle} buttonList={movieButtonList}/>
+            <MovieToolbar ariaLabel={`${movieTitle} Actions`} movieTitle={movieTitle} buttonList={movieButtonList}/>
         );
     };
 
