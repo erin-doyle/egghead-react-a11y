@@ -23,8 +23,8 @@ const Movie = ({ movieId, movie, movieActions }) => {
                 <div className="col-1"><img src={imgSrc} alt="movie" /></div>
                 <div className="col">
                     <div className="card-body">
-                        <h5 className="card-title">{name} ({year})</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{rating} | {runtime} { genre ? `| ${genre}` : null }</h6>
+                        <h2 className="card-title">{name} ({year})</h2>
+                        <p className="card-subtitle mb-2 text-muted">{rating} | {runtime} { genre ? `| ${genre}` : null }</p>
                         <p className="card-text">{description}</p>
                         <p className="card-text text-muted">Director: {director} | Stars: {stars}</p>
 
