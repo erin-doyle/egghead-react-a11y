@@ -64,50 +64,54 @@ class Login extends Component {
             <div className="login row align-items-center">
                 <div className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
                     <div className="card bg-primary">
-                        <h5 className="card-header">
-                            Movie Wishlist Login
-                        </h5>
-                        <form>
-                            <div className="card-body">
+                        <div role="banner">
+                            <h5 className="card-header">
+                                Movie Wishlist Login
+                            </h5>
+                        </div>
+                        <div role="main">
+                            <div role="form">
+                                <div className="card-body">
 
-                                <div className="form-group">
-                                    <label>Username</label>
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        className={usernameClasses}
-                                        placeholder="Enter username"
-                                        onChange={this.handleUsernameChange}
-                                    />
-                                    <div className="invalid-feedback">
-                                        Please provide a Username.
+                                    <div className="form-group">
+                                        <label>Username</label>
+                                        <input
+                                            type="text"
+                                            name="username"
+                                            className={usernameClasses}
+                                            placeholder="Enter username"
+                                            onChange={this.handleUsernameChange}
+                                        />
+                                        <div className="invalid-feedback">
+                                            Please provide a Username.
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="form-group">
-                                    <label>Password</label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        className={passwordClasses}
-                                        placeholder="Password"
-                                        onChange={this.handlePasswordChange}
-                                    />
-                                    <small className="form-text text-muted">
-                                        Passwords are case sensitive
-                                    </small>
-                                    <div className="invalid-feedback">
-                                        Please provide a Password.
+                                    <div className="form-group">
+                                        <label>Password</label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            className={passwordClasses}
+                                            placeholder="Password"
+                                            onChange={this.handlePasswordChange}
+                                        />
+                                        <small className="form-text text-muted">
+                                            Passwords are case sensitive
+                                        </small>
+                                        <div className="invalid-feedback">
+                                            Please provide a Password.
+                                        </div>
                                     </div>
-                                </div>
 
-                                <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
+                                    <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
+                                </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
 
-                <div className="footer">
+                <div role="contentinfo" className="footer">
                     <div><a href="/T&C">Terms &amp; Conditions</a></div>
                     <div><a href="/privacy">Privacy Policy</a></div>
                     <div>© Movie Wishlist 2019</div>

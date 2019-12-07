@@ -21,40 +21,44 @@ const MovieBrowser = ({
 
     return (
         <div>
-            <div className="navbar navbar-dark bg-primary">
+            <div role="banner" className="navbar navbar-dark bg-primary">
                     <span className="navbar-text">
                         Browse Movies
                     </span>
-                <button className="btn btn-outline-secondary" onClick={goToWishlist}>{'< Back'}</button>
+                <div role="navigation">
+                    <button className="btn btn-outline-secondary" onClick={goToWishlist}>{'< Back'}</button>
+                </div>
             </div>
 
-            <ul className="nav nav-pills nav-justified">
-                <li className="nav-item">
-                    <NavLink to="/browse/action" className="nav-link" activeClassName="active">Action</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/browse/drama" className="nav-link" activeClassName="active">Drama</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/browse/comedy" className="nav-link" activeClassName="active">Comedy</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/browse/scifi" className="nav-link" activeClassName="active">Sci Fi</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/browse/fantasy" className="nav-link" activeClassName="active">Fantasy</NavLink>
-                </li>
-            </ul>
+            <div role="main">
+                <ul className="nav nav-pills nav-justified">
+                    <li className="nav-item">
+                        <NavLink to="/browse/action" className="nav-link" activeClassName="active">Action</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/browse/drama" className="nav-link" activeClassName="active">Drama</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/browse/comedy" className="nav-link" activeClassName="active">Comedy</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/browse/scifi" className="nav-link" activeClassName="active">Sci Fi</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/browse/fantasy" className="nav-link" activeClassName="active">Fantasy</NavLink>
+                    </li>
+                </ul>
 
-            <div>
-                <BrowseList
-                    movieList={moviesInGenre}
-                    wishlist={wishlist}
-                    movieActions={movieActions}
-                />
+                <div>
+                    <BrowseList
+                        movieList={moviesInGenre}
+                        wishlist={wishlist}
+                        movieActions={movieActions}
+                    />
+                </div>
             </div>
 
-            <div className="footer">
+            <div role="contentinfo" className="footer">
                 <div><a href="/T&C">Terms &amp; Conditions</a></div>
                 <div><a href="/privacy">Privacy Policy</a></div>
                 <div>© Movie Wishlist 2019</div>
