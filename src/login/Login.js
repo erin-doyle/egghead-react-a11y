@@ -64,13 +64,13 @@ class Login extends Component {
             <div className="login row align-items-center">
                 <div className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
                     <div className="card bg-primary">
-                        <div role="banner">
+                        <header>
                             <h5 className="card-header">
                                 Movie Wishlist Login
                             </h5>
-                        </div>
-                        <div role="main">
-                            <div role="form">
+                        </header>
+                        <main>
+                            <form>
                                 <div className="card-body">
 
                                     <div className="form-group">
@@ -106,16 +106,16 @@ class Login extends Component {
 
                                     <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
                                 </div>
-                            </div>
-                        </div>
+                            </form>
+                        </main>
                     </div>
                 </div>
 
-                <div role="contentinfo" className="footer">
+                <footer className="footer">
                     <div><a href="/T&C">Terms &amp; Conditions</a></div>
                     <div><a href="/privacy">Privacy Policy</a></div>
                     <div>© Movie Wishlist 2019</div>
-                </div>
+                </footer>
             </div>
         );
     }

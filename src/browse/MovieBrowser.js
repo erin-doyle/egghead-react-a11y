@@ -21,16 +21,16 @@ const MovieBrowser = ({
 
     return (
         <div>
-            <div role="banner" className="navbar navbar-dark bg-primary">
+            <header className="navbar navbar-dark bg-primary">
                     <span className="navbar-text">
                         Browse Movies
                     </span>
-                <div role="navigation">
+                <nav>
                     <button className="btn btn-outline-secondary" onClick={goToWishlist}>{'< Back'}</button>
-                </div>
-            </div>
+                </nav>
+            </header>
 
-            <div role="main">
+            <main>
                 <ul className="nav nav-pills nav-justified">
                     <li className="nav-item">
                         <NavLink to="/browse/action" className="nav-link" activeClassName="active">Action</NavLink>
@@ -56,13 +56,13 @@ const MovieBrowser = ({
                         movieActions={movieActions}
                     />
                 </div>
-            </div>
+            </main>
 
-            <div role="contentinfo" className="footer">
+            <footer className="footer">
                 <div><a href="/T&C">Terms &amp; Conditions</a></div>
                 <div><a href="/privacy">Privacy Policy</a></div>
                 <div>© Movie Wishlist 2019</div>
-            </div>
+            </footer>
         </div>
     );
 };

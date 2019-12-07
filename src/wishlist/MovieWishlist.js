@@ -60,16 +60,16 @@ class MovieWishlist extends Component {
 
         return (
             <div>
-                <div role="banner" className="navbar navbar-dark bg-primary">
+                <header className="navbar navbar-dark bg-primary">
                     <span className="navbar-text">
                         Movie Wishlist
                     </span>
-                    <div role="navigation">
+                    <nav>
                         <button className="btn btn-outline-secondary" onClick={goToBrowse}>+</button>
-                    </div>
-                </div>
+                    </nav>
+                </header>
 
-                <div role="main">
+                <main>
                     {Object.keys(wishlist).length
                         // Show WishList
                         ? <Fragment>
@@ -104,13 +104,13 @@ class MovieWishlist extends Component {
                         // No movies yet in the WishList
                         : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>
                     }
-                </div>
+                </main>
 
-                <div role="contentinfo" className="footer">
+                <footer className="footer">
                     <div><a href="/T&C">Terms &amp; Conditions</a></div>
                     <div><a href="/privacy">Privacy Policy</a></div>
                     <div>© Movie Wishlist 2019</div>
-                </div>
+                </footer>
 
             </div>
         );
