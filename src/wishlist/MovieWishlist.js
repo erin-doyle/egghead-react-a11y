@@ -62,7 +62,7 @@ class MovieWishlist extends Component {
             <div>
                 <header className="navbar navbar-dark bg-primary">
                     <span className="navbar-text">
-                        Movie Wishlist
+                        <h1>Movie Wishlist</h1>
                     </span>
                     <nav>
                         <button className="btn btn-outline-secondary" onClick={goToBrowse}>+</button>
