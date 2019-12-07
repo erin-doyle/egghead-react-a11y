@@ -69,10 +69,11 @@ class Login extends Component {
                                 Movie Wishlist Login
                             </h5>
                         </header>
-                        <main>
-                            <form>
-                                <div className="card-body">
 
+                        <main>
+                            <div className="card-body">
+
+                                <form>
                                     <div className="form-group">
                                         <label>Username</label>
                                         <input
@@ -105,8 +106,9 @@ class Login extends Component {
                                     </div>
 
                                     <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
-                                </div>
-                            </form>
+                                </form>
+
+                            </div>
                         </main>
                     </div>
                 </div>
