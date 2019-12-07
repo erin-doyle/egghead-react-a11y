@@ -106,6 +106,12 @@ class Login extends Component {
                         </form>
                     </div>
                 </div>
+
+                <div className="footer">
+                    <div><a href="/T&C">Terms &amp; Conditions</a></div>
+                    <div><a href="/privacy">Privacy Policy</a></div>
+                    <div>© Movie Wishlist 2019</div>
+                </div>
             </div>
         );
     }
