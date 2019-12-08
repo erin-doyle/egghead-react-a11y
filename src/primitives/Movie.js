@@ -20,7 +20,7 @@ const Movie = ({ movieId, movie, movieActions }) => {
     return (
         <div className="card mb-3">
             <div className="row">
-                <div className="col-1"><img src={imgSrc} alt={`${name} Movie Poster`} /></div>
+                <div className="col-1"><img src={imgSrc} alt="" /></div>
                 <div className="col">
                     <div className="card-body">
                         <h2 className="card-title">{name} ({year})</h2>
