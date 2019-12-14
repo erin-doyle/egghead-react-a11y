@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import TabList from '../primitives/TabList';
 
 import WishList from './WishList';
 import getWishlistActions from './getWishlistActions';
@@ -55,6 +57,10 @@ class MovieWishlist extends Component {
         const { showEditor, movieIdInEdit } = this.state;
 
         const goToBrowse = () => history.push('/browse');
+        const tabList = [
+            { linkTo: "/wishlist/unwatched", title: "Unwatched" },
+            { linkTo: "/wishlist/watched", title: "Watched" }
+        ];
         const movieActions = getWishlistActions(this.handleShowEditor, setAsWatched, setAsUnwatched, removeMovie);
         const movieInEditing = movieIdInEdit ? wishlist[movieIdInEdit] : {};
 
@@ -70,21 +76,11 @@ class MovieWishlist extends Component {
                 </header>
 
                 <main>
+                    <TabList tabList={tabList} />
+
                     {Object.keys(wishlist).length
                         // Show WishList
                         ? <Fragment>
-
-                            <ul className="nav nav-pills nav-justified">
-                                <li className="nav-item">
-                                    <NavLink to="/wishlist/unwatched" className="nav-link"
-                                             activeClassName="active">Unwatched</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink to="/wishlist/watched" className="nav-link"
-                                             activeClassName="active">Watched</NavLink>
-                                </li>
-                            </ul>
-
                             <div>
                                 <WishList
                                     movieList={wishlist}
@@ -93,13 +89,13 @@ class MovieWishlist extends Component {
                                 />
                             </div>
 
-                                <MovieEditor
-                                    key={movieInEditing.name}
-                                    movie={movieInEditing}
-                                    updateMovie={this.handleUpdateMovie}
-                                    isOpen={showEditor}
-                                />
-                            </Fragment>
+                            <MovieEditor
+                                key={movieInEditing.name}
+                                movie={movieInEditing}
+                                updateMovie={this.handleUpdateMovie}
+                                isOpen={showEditor}
+                            />
+                        </Fragment>
 
                         // No movies yet in the WishList
                         : <p>No Movies in your Wish List! <Link to="/browse">Add some</Link>!</p>

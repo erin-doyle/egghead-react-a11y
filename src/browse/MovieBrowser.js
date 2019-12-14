@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 
 import movies from '../movies';
+import TabList from '../primitives/TabList';
 
 import BrowseList from './BrowseList';
 import getBrowseActions from './getBrowseActions';
@@ -16,6 +16,13 @@ const MovieBrowser = ({
     removeFromWishlist
 }) => {
     const goToWishlist = () => history.push('/wishlist');
+    const tabList = [
+        { linkTo: "/browse/action", title: "Action" },
+        { linkTo: "/browse/drama", title: "Drama" },
+        { linkTo: "/browse/comedy", title: "Comedy" },
+        { linkTo: "/browse/scifi", title: "Sci Fi" },
+        { linkTo: "/browse/fantasy", title: "Fantasy" }
+    ];
     const movieActions = getBrowseActions(addToWishlist, removeFromWishlist);
     const moviesInGenre = movies[match.params.genre];
 
@@ -31,23 +38,7 @@ const MovieBrowser = ({
             </header>
 
             <main>
-                <ul className="nav nav-pills nav-justified">
-                    <li className="nav-item">
-                        <NavLink to="/browse/action" className="nav-link" activeClassName="active">Action</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/browse/drama" className="nav-link" activeClassName="active">Drama</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/browse/comedy" className="nav-link" activeClassName="active">Comedy</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/browse/scifi" className="nav-link" activeClassName="active">Sci Fi</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/browse/fantasy" className="nav-link" activeClassName="active">Fantasy</NavLink>
-                    </li>
-                </ul>
+                <TabList tabList={tabList} />
 
                 <div>
                     <BrowseList
