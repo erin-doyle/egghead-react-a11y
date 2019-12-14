@@ -66,13 +66,12 @@ class Login extends Component {
                     <header>
                         <h1>Movie Wishlist</h1>
                     </header>
+                    <main>
+                        <div className="card bg-light">
+                            <h2 className="card-header">
+                                 Login
+                            </h2>
 
-                    <div className="card bg-primary">
-                        <h2 className="card-header">
-                            Login
-                        </h2>
-
-                        <main>
                             <div className="card-body">
 
                                 <form>
@@ -99,7 +98,7 @@ class Login extends Component {
                                             placeholder="Password"
                                             onChange={this.handlePasswordChange}
                                         />
-                                        <small className="form-text text-muted">
+                                        <small className="form-text helper-text">
                                             Passwords are case sensitive
                                         </small>
                                         <div className="invalid-feedback">
@@ -107,12 +106,12 @@ class Login extends Component {
                                         </div>
                                     </div>
 
-                                    <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Login</button>
+                                    <button type="button" className="btn btn-dark" onClick={this.onSubmit}>Login</button>
                                 </form>
 
                             </div>
-                        </main>
-                    </div>
+                        </div>
+                    </main>
                 </div>
 
                 <footer className="footer">

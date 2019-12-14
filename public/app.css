@@ -1,3 +1,8 @@
+:root {
+    --dark-blue: #034f9a;
+    --red: #bd1425;
+}
+
 html,body {
     height:100%;
 }
@@ -11,6 +16,12 @@ body > .page {
     min-height: 100%;
 }
 
+a {
+    color: var(--dark-blue);
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 .page {
     width:100%;
     position:relative;
@@ -20,9 +31,41 @@ body > .page {
     margin-top: 5rem;
 }
 
+.helper-text {
+    color: var(--dark-blue);
+    opacity: 0.8;
+}
+
+.invalid-feedback {
+    color: var(--red);
+}
+
 .nav {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.navbar-dark {
+    background-color: var(--dark-blue);
+}
+
+.nav-link {
+    text-decoration: none;
+    opacity: 1;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--dark-blue);
+}
+
+.btn-dark {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.no-movies-container {
+    margin-top: 50px;
+    text-align: center;
 }
 
 .footer {
@@ -41,7 +84,7 @@ body > .page {
 
 .notes {
     font-style: italic;
-    color: #13d63f;
+    color: #3951b1;
 }
 
 .dialog-modal {

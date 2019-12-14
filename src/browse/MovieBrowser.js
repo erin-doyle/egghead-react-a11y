@@ -21,12 +21,12 @@ const MovieBrowser = ({
 
     return (
         <div>
-            <header className="navbar navbar-dark bg-primary">
-                    <span className="navbar-text">
-                        <h1>Browse Movies</h1>
-                    </span>
+            <header className="navbar navbar-dark">
+                <span className="navbar-brand">
+                    <h1>Browse Movies</h1>
+                </span>
                 <nav>
-                    <button className="btn btn-outline-secondary" onClick={goToWishlist}>{'< Back'}</button>
+                    <button className="btn btn-outline-light" onClick={goToWishlist}>{'< Back'}</button>
                 </nav>
             </header>
 
