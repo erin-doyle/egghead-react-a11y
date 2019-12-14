@@ -71,7 +71,7 @@ class MovieWishlist extends Component {
                         <h1>Movie Wishlist</h1>
                     </span>
                     <nav>
-                        <button className="btn btn-outline-light" onClick={goToBrowse}>+</button>
+                        <button className="btn btn-outline-light" aria-label="Add a Movie" onClick={goToBrowse}>+</button>
                     </nav>
                 </header>
 

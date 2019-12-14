@@ -33,7 +33,7 @@ const MovieBrowser = ({
                     <h1>Browse Movies</h1>
                 </span>
                 <nav>
-                    <button className="btn btn-outline-light" onClick={goToWishlist}>{'< Back'}</button>
+                    <button className="btn btn-outline-light" aria-label="Back to Wish List" onClick={goToWishlist}>{'< Back'}</button>
                 </nav>
             </header>
 
