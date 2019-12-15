@@ -10,6 +10,7 @@ const FormInput = ({
     errorText,
     helperText,
     onChange,
+    isRequired,
     isValid
 }) => {
     const inputClasses = `form-control ${!isValid ? 'is-invalid' : ''}`;
@@ -25,6 +26,8 @@ const FormInput = ({
                 name={name}
                 className={inputClasses}
                 onChange={onChange}
+                aria-required={isRequired}
+                aria-invalid={!isValid}
                 aria-describedby={`${helperId} ${errorId}`}
             />
             { helperText &&
