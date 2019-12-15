@@ -36,8 +36,12 @@ const FormInput = ({
                 </small>
             }
             { errorText &&
-                <div id={errorId} className="invalid-feedback">
-                    {errorText}
+                <div
+                    id={errorId}
+                    className="invalid-feedback"
+                    aria-live="polite"
+                >
+                    {!isValid ? errorText : ''}
                 </div>
             }
         </div>
