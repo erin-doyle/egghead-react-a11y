@@ -57,6 +57,7 @@ class MovieWishlist extends Component {
         } = this.props;
         const { showEditor, movieIdInEdit } = this.state;
 
+        const hasMovies = !!Object.keys(wishlist).length;
         const goToBrowse = () => history.push('/browse');
         const tabList = [
             { linkTo: "/wishlist/unwatched", title: "Unwatched" },
@@ -72,36 +73,38 @@ class MovieWishlist extends Component {
                 <main>
                     <TabList tabList={tabList} />
 
-                    {Object.keys(wishlist).length
-                        // Show WishList
-                        ? <Fragment>
-                            <div>
-                                <WishList
-                                    movieList={wishlist}
-                                    watched={match.params.status === 'watched'}
-                                    movieActions={movieActions}
+                    { hasMovies
+                        ? ( // Show WishList
+                            <Fragment>
+                                <div>
+                                    <WishList
+                                        movieList={wishlist}
+                                        watched={match.params.status === 'watched'}
+                                        movieActions={movieActions}
+                                    />
+                                </div>
+
+                                <MovieEditor
+                                    key={movieInEditing.name}
+                                    movie={movieInEditing}
+                                    updateMovie={this.handleUpdateMovie}
+                                    isOpen={showEditor}
                                 />
+                            </Fragment>
+                        )
+
+                        : ( // No movies yet in the WishList
+                            <div aria-labelledby="noMoviesText addLink" className="no-movies-container">
+                                <span id="noMoviesText">
+                                    No Movies in your Wish List! &nbsp;
+                                    <Link id="addLink" to="/browse"
+                                          aria-label="Add some movies to your wishlist now!"
+                                    >
+                                        Add some!
+                                    </Link>
+                                </span>
                             </div>
-
-                            <MovieEditor
-                                key={movieInEditing.name}
-                                movie={movieInEditing}
-                                updateMovie={this.handleUpdateMovie}
-                                isOpen={showEditor}
-                            />
-                        </Fragment>
-
-                        // No movies yet in the WishList
-                        : <div aria-labelledby="noMoviesText addLink" className="no-movies-container">
-                            <span id="noMoviesText">
-                                No Movies in your Wish List!&nbsp;
-                                <Link id="addLink" to="/browse"
-                                      aria-label="Add some movies to your wishlist now!"
-                                >
-                                    Add some!
-                                </Link>
-                            </span>
-                        </div>
+                        )
                     }
                 </main>
 
