@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '14.x'
       - run: npm ci
-      - run: npm build
+      - run: npm run build
       - name: Run Lighthouse against the static build dir
         uses: treosh/lighthouse-ci-action@v3
         with:
