@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "lint": "eslint src",
     "pretest": "npm run lint",
-    "test": "react-scripts test",
+    "test-only": "react-scripts test",
+    "test": "npm run test-only",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
