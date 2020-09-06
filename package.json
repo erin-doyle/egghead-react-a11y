@@ -11,7 +11,14 @@
     "react-scripts": "3.2.0"
   },
   "devDependencies": {
-    "react-axe": "^3.3.0"
+    "axe-webdriverjs": "^2.3.0",
+    "cypress": "^5.1.0",
+    "cypress-axe": "^0.8.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
+    "jest-axe": "^3.5.0",
+    "react-axe": "^3.3.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,7 +29,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": ["react-app", "plugin:jsx-a11y/recommended"]
+    "extends": [
+      "react-app",
+      "plugin:jsx-a11y/recommended"
+    ]
   },
   "browserslist": {
     "production": [
