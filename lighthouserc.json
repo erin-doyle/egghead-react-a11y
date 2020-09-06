@@ -1,7 +1,12 @@
 {
     "ci": {
         "collect": {
-            "staticDistDir": "./build"
+            "url": ["http://localhost:5000"],
+            "isSinglePageApplication": true,
+            "startServerReadyPattern": "Serving",
+            "settings": {
+                "onlyCategories": ["accessibility"]
+            }
         }
     },
     "upload": {
