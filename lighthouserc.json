@@ -3,7 +3,7 @@
         "collect": {
             "url": ["http://localhost:5000"],
             "isSinglePageApplication": true,
-            "startServerReadyPattern": "Serving",
+            "startServerReadyPattern": "Accepting",
             "settings": {
                 "onlyCategories": ["accessibility"]
             }
