@@ -27,6 +27,7 @@
     "pretest": "npm run lint",
     "test-only": "react-scripts test",
     "test": "npm run test-only",
+    "cypress:open": "cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
