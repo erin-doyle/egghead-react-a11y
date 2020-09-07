@@ -1,0 +1,12 @@
+[[plugins]]
+package = "netlify-plugin-a11y"
+
+  [plugins.inputs]
+  checkPaths = [
+    '/build/index.html',
+  ]
+
+  # # optional config
+  # ignoreDirectories = ['/admin']  # explicitly ignore these directories
+
+  # resultMode = "warn" # is "error" by default
