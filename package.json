@@ -2,27 +2,47 @@
   "name": "egghead-react-a11y",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://egghead-react-a11y.netlify.app",
   "dependencies": {
+    "pa11y-ci": "^2.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-modal": "^3.10.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
-    "react-axe": "^3.3.0"
+    "axe-webdriverjs": "^2.3.0",
+    "cypress": "^5.1.0",
+    "cypress-axe": "^0.8.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
+    "jest-axe": "^3.5.0",
+    "react-axe": "^3.3.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve -s build",
+    "serve:prod": "NODE_ENV=production npm run serve",
+    "serve:lhci": "npm run serve:prod",
     "lint": "eslint src",
     "pretest": "npm run lint",
-    "test": "react-scripts test",
+    "test-only": "react-scripts test",
+    "test": "npm run test-only",
+    "cypress:open": "cypress open",
+    "lighthouse": "lhci autorun",
+    "pa11y": "pa11y-ci",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": ["react-app", "plugin:jsx-a11y/recommended"]
+    "extends": [
+      "react-app",
+      "plugin:jsx-a11y/recommended"
+    ]
   },
   "browserslist": {
     "production": [

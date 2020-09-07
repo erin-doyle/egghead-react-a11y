@@ -1,0 +1,15 @@
+{
+    "ci": {
+        "collect": {
+            "url": ["http://localhost:5000/login"],
+            "isSinglePageApplication": true,
+            "startServerReadyPattern": "Accepting",
+            "settings": {
+                "onlyCategories": ["accessibility"]
+            }
+        }
+    },
+    "upload": {
+        "target": "temporary-public-storage"
+    }
+}
