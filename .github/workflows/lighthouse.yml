@@ -10,6 +10,8 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     name: Audit with Lighthouse
+    env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
