@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://egghead-react-a11y.netlify.app",
   "dependencies": {
+    "pa11y-ci": "^2.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -26,13 +27,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "serve": "serve -s build",
-    "serve:lhci": "NODE_ENV=production npm run serve",
+    "serve:prod": "NODE_ENV=production npm run serve",
+    "serve:lhci": "npm run serve:prod",
     "lint": "eslint src",
     "pretest": "npm run lint",
     "test-only": "react-scripts test",
     "test": "npm run test-only",
     "cypress:open": "cypress open",
     "lighthouse": "lhci autorun",
+    "pa11y": "pa11y-ci",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
