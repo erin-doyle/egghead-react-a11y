@@ -1,0 +1,21 @@
+name: Lighthouse
+
+on:
+  push:
+    branches: [ master, testing ]
+  pull_request:
+    branches: [ master, testing ]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    name: Audit with Lighthouse
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm run build
+      - run: npm run serve:prod & sleep 5
+      - run: npm run pa11y
