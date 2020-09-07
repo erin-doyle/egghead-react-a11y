@@ -2,7 +2,7 @@
   "name": "egghead-react-a11y",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "https://egghead-react-a11y.netlify.app",
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
