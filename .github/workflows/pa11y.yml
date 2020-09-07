@@ -7,7 +7,7 @@ on:
     branches: [ master, testing ]
 
 jobs:
-  lighthouse:
+  pa11y:
     runs-on: ubuntu-latest
     name: Audit with Lighthouse
     steps:
