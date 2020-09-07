@@ -1,4 +1,4 @@
-name: Lighthouse
+name: Pa11y
 
 on:
   push:
